@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include <QDebug>
+#include <QTime>
+
 
 class Stopwatch : public QObject
 {
@@ -11,14 +13,12 @@ public:
     explicit Stopwatch(QObject *parent = nullptr);
     ~Stopwatch();
     void send_signal();
-    QString make_time();
-    void add_sec();
+    QString show_time();
+    void add_millisec();
 signals:
     void sig_send_signal();
 private:
-    int hour;
-    int min;
-    int sec;
+    QTime* time;
 };
 
 #endif // STOPWATCH_H

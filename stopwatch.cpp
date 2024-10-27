@@ -1,7 +1,9 @@
 #include "stopwatch.h"
 
-Stopwatch::Stopwatch(QObject *parent) : QObject{parent}, hour{0}, min{0}, sec{0}
-{}
+Stopwatch::Stopwatch(QObject *parent) : QObject{parent}
+{
+    time = new QTime(0,0,0,0);
+}
 
 Stopwatch::~Stopwatch()
 {
@@ -14,25 +16,12 @@ void Stopwatch::send_signal()
 }
 
 
-QString Stopwatch::make_time()
+QString Stopwatch::show_time()
 {
-    QString result =  QString::number(hour) + "::" + QString::number(min) + "::" + QString::number(sec);
-    return result;
+    return time->toString("hh::mm::ss");    //QString::number(hour) + "::" + QString::number(min) + "::" + QString::number(sec);
 }
 
-void Stopwatch::add_sec()
+void Stopwatch::add_millisec()
 {
-    ++sec;
-    if (sec == 60)
-    {
-        ++min;
-        sec = 0;
-    }
-
-    if (min == 60)
-    {
-        ++hour;
-        min = 0;
-    }
-
+    *time = time->addMSecs(1);
 }
