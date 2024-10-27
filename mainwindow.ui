@@ -18,7 +18,7 @@
     <item row="4" column="2">
      <widget class="QPushButton" name="btn_setLap_reset">
       <property name="text">
-       <string>set lap/reset</string>
+       <string>Круг</string>
       </property>
      </widget>
     </item>
@@ -32,14 +32,14 @@
     <item row="4" column="1">
      <widget class="QPushButton" name="btn_stop">
       <property name="text">
-       <string>stop</string>
+       <string>Очистить</string>
       </property>
      </widget>
     </item>
     <item row="4" column="0">
      <widget class="QPushButton" name="btn_start">
       <property name="text">
-       <string>start/pause</string>
+       <string>Старт</string>
       </property>
      </widget>
     </item>

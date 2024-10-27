@@ -26,9 +26,6 @@ private:
     Stopwatch* stopwatch;
 public slots:
     void slot_timer();
-
-//private slots:
-//    void on_pb_send_signal_clicked();
 private slots:
     void on_btn_start_clicked();
 };
