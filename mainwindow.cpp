@@ -10,8 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lb_time->setFont(font);
 
     timer = new QTimer();
-    //connect(timer, SIGNAL(timeout()), this, SLOT(slot_timer()));
-    //timer->start(1000);
+    connect(timer, SIGNAL(timeout()), this, SLOT(slot_timer()));
+    timer->start(1000);
 }
 
 MainWindow::~MainWindow()
@@ -22,5 +22,12 @@ MainWindow::~MainWindow()
 void MainWindow::slot_timer()
 {
 //TODO
-   //ui->lb_time->setText(QTimer::currentTime().toString("hh:mm:ss"));
+    ui->lb_time->setText(QTime::currentTime().toString("hh:mm:ss"));
 }
+
+void MainWindow::on_btn_start_clicked()
+{
+    //connect(timer, SIGNAL(timeout()), this, SLOT(slot_timer()));
+    //timer->start(1000);
+}
+
