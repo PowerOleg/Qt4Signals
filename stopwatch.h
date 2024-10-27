@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QDebug>
 
-class Stopwatch : QObject
+class Stopwatch : public QObject
 {
     Q_OBJECT
 public:

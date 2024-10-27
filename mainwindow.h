@@ -23,6 +23,7 @@ public:
 private:
     Ui::MainWindow *ui;
     QTimer* timer;
+    Stopwatch* stopwatch;
 public slots:
     void slot_timer();
 

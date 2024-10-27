@@ -10,7 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lb_time->setFont(font);
 
     timer = new QTimer();
-    connect(timer, SIGNAL(timeout()), this, SLOT(slot_timer()));
+    stopwatch = new Stopwatch(this);
+    connect(stopwatch, &Stopwatch::sig_send_signal/*SIGNAL(timeout())*/, this, &MainWindow::slot_timer/*SLOT(slot_timer())*/);
     timer->start(1000);
 }
 
@@ -27,6 +28,7 @@ void MainWindow::slot_timer()
 
 void MainWindow::on_btn_start_clicked()
 {
+    stopwatch->send_signal();
     //connect(timer, SIGNAL(timeout()), this, SLOT(slot_timer()));
     //timer->start(1000);
 }
