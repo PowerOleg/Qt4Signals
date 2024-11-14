@@ -26,5 +26,7 @@ public slots:
     void slot_timer();
 private slots:
     void on_btn_start_clicked();
+    void on_btn_stop_clicked();
+    void on_btn_setLap_reset_clicked();
 };
 #endif // MAINWINDOW_H
