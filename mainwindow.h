@@ -2,10 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QTime>
-#include <QTimer>
 #include <QFont>
 #include <QDebug>
+#include <QTimer>
 #include "stopwatch.h"
 
 QT_BEGIN_NAMESPACE
@@ -22,7 +21,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    QTimer* timer;
     Stopwatch* stopwatch;
 public slots:
     void slot_timer();

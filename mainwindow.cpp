@@ -9,10 +9,10 @@ MainWindow::MainWindow(QWidget *parent)
     QFont font("Times", 28, QFont::Bold);
     ui->lb_time->setFont(font);
 
-    this->timer = new QTimer();
+    //this->timer = new QTimer();
     this->stopwatch = new Stopwatch(this);
     //connect(stopwatch, &Stopwatch::sig_send_signal, this, &MainWindow::slot_timer);
-    connect(timer, &QTimer::timeout, this, &MainWindow::slot_timer, static_cast<Qt::ConnectionType>(Qt::AutoConnection | Qt::UniqueConnection));
+    connect(this->stopwatch->getTimer(), &QTimer::timeout, this, &MainWindow::slot_timer, static_cast<Qt::ConnectionType>(Qt::AutoConnection | Qt::UniqueConnection));
 }
 
 MainWindow::~MainWindow()
@@ -22,7 +22,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::slot_timer()
 {
-    stopwatch->add_millisec();
+    this->stopwatch->add_100_millisec();
     ui->lb_time->setText(stopwatch->show_time());
 }
 
@@ -31,12 +31,12 @@ void MainWindow::on_btn_start_clicked()
     if (!QString::compare(ui->btn_start->text(), "старт", Qt::CaseInsensitive))
     {
         ui->btn_start->setText("Стоп");
-        this->timer->start(1);
+        this->stopwatch->start();
     }
     else
     {
         ui->btn_start->setText("Старт");
-        this->timer->stop();
+        this->stopwatch->stop();
     }
 }
 
