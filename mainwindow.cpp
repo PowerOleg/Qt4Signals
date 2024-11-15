@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->stopwatch = new Stopwatch(this);
     //connect(stopwatch, &Stopwatch::sig_send_signal, this, &MainWindow::slot_timer);
     connect(this->stopwatch->getTimer(), &QTimer::timeout, this, &MainWindow::slot_timer, static_cast<Qt::ConnectionType>(Qt::AutoConnection | Qt::UniqueConnection));
+    ui->btn_setLap_reset->setEnabled(false);
 }
 
 MainWindow::~MainWindow()
@@ -30,11 +31,13 @@ void MainWindow::on_btn_start_clicked()
     {
         ui->btn_start->setText("Стоп");
         this->stopwatch->Start();
+        ui->btn_setLap_reset->setEnabled(true);
     }
     else
     {
         ui->btn_start->setText("Старт");
         this->stopwatch->Stop();
+        ui->btn_setLap_reset->setEnabled(false);
     }
 }
 
@@ -42,6 +45,7 @@ void MainWindow::on_btn_stop_clicked()
 {
     this->stopwatch->Clear();
     ui->lb_time->setText(stopwatch->ShowTime());
+    ui->tb_stop->clear();
 }
 
 void MainWindow::on_btn_setLap_reset_clicked()

@@ -25,6 +25,8 @@ void Stopwatch::Stop()
  void Stopwatch::Clear()
  {
     this->time->setHMS(0,0,0,0);
+    this->lap->setHMS(0,0,0,0);
+    this->lap_count = 0;
  }
 
 void Stopwatch::SendSignal()
@@ -39,12 +41,18 @@ QString Stopwatch::ShowTime()
 
 QString Stopwatch::ShowLap()//Круг N, время: M сек
 {
-    //lap_count
     int hour = this->lap->hour();
     int min = this->lap->minute();
     int sec = this->lap->second();
+    for (int var = 0; var < hour; ++var) {
+        sec += 3600;
+    }
+    for (int var = 0; var < min; ++var) {
+        sec += 60;
+    }
 
-    QString text_lap = "Круг " + QString::number(sec) + " , время: ";
+    QString text_lap = "Круг " + QString::number(++lap_count) + " , время: " + QString::number(sec) + " сек";
+    this->lap->setHMS(0,0,0,0);
     return text_lap;
 }
 
