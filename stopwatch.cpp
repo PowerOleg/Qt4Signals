@@ -36,7 +36,7 @@ void Stopwatch::SendSignal()
 
 QString Stopwatch::ShowTime()
 {
-    return this->time->toString("hh::mm::ss");    //QString::number(hour) + "::" + QString::number(min) + "::" + QString::number(sec);
+    return this->time->toString("hh::mm::ss::z"); //QString::number(hour) + "::" + QString::number(min) + "::" + QString::number(sec);
 }
 
 QString Stopwatch::ShowLap()//Круг N, время: M сек
