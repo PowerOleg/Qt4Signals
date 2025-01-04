@@ -25,7 +25,7 @@
     <item row="0" column="1" alignment="Qt::AlignHCenter|Qt::AlignTop">
      <widget class="QLabel" name="lb_time">
       <property name="text">
-       <string>0:00:00</string>
+       <string>0::00::00::0</string>
       </property>
      </widget>
     </item>
